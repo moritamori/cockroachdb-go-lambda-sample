@@ -1,0 +1,15 @@
+version = 0.1
+[default]
+[default.global.parameters]
+parameter_overrides = "DatabaseUrl=postgresql://<username>:<password>@<serverless-host>:26257/defaultdb?sslmode=verify-full"
+
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "cockroachdb-go-lambda-sample"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-11d3lizsqss5d"
+s3_prefix = "cockroachdb-go-lambda-sample"
+region = "ap-northeast-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+disable_rollback = true
+image_repositories = []

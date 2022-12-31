@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lambda-debug-sample
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 5
+    Environment:
+      Variables:
+        DB_USERNAME: !Ref DbUsername
+        DB_PASSWORD: !Ref DbPassword
+        HOSTNAME: !Ref Hostname
+        PORT: !Ref Port
+        DB_NAME: !Ref DbName
+
+Resources:
+  HelloGopher: # リソース名を指定
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: ./
+      Handler: hello-world
+      Runtime: go1.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          DB_USERNAME: !Ref DbUsername
+          DB_PASSWORD: !Ref DbPassword
+          HOSTNAME: !Ref Hostname
+          PORT: !Ref Port
+          DB_NAME: !Ref DbName
+
+Parameters:
+  DbUsername:
+    Type: String
+  DbPassword:
+    Type: String
+  Hostname:
+    Type: String
+  Port:
+    Type: String
+  DbName:
+    Type: String
+

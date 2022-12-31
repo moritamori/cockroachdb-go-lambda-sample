@@ -1,0 +1,25 @@
+{
+	"configurations": [
+		{
+			"name": "SAMでデバッグ",
+			"type": "aws-sam",
+			"request": "direct-invoke",
+			"invokeTarget": {
+				"target": "template",
+				"templatePath": "${workspaceFolder}/template.yml",
+				"logicalId": "HelloGopher"
+			},
+			"lambda": {
+				"payload": {},
+				"environmentVariables": {
+					"DB_USERNAME": "",
+					"DB_PASSWORD": "",
+					"HOSTNAME": "", 
+					"PORT": "", 
+					"DB_NAME": "",
+				}
+			}
+		},
+	]
+}
+    
